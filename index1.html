@@ -1,0 +1,97 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax jqueary</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            getData();
+        })
+
+
+        function getData(){
+            $.ajax({
+                url: 'sample.php',
+                type: 'GET',
+                success: successFn,
+                error: errorFn,
+                complete: function(xhr,status){
+                    console.log('the request is complete')
+                }
+
+            })
+        }
+
+        function successFn(result){
+            console.log(result);
+            console.log('success');
+            $("#ajaxMassage").append(result);
+        }
+
+        function errorFn(xhr,status,strErr){
+            console.log(xhr);
+            console.log(status);
+            console.log(strErr);
+            console.log('error');   
+        }
+    </script>
+</head>
+<body>
+    <div id="ajaxMassage"></div>
+</body>
+</html> 
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rakib gandu</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            rakib();
+        })
+
+
+        function rakib(){
+            $.ajax({
+                url: 'irfan.html',
+                type: 'GET',
+                dataType: 'text',
+                success: successFn,
+                error: errorFn,
+                complete: function(xhr,status){
+                    console.log('this is request');
+                }
+            })
+        }
+
+        function successFn(result){
+            console.log('success');
+            $('#irfankhan').append(result);
+        }
+
+
+        function errorFn(xhr,status,strErr){
+            console.log(xhr);
+            console.log(status);
+            console.log(strErr);
+
+        }
+
+        
+    </script>
+</head>
+<body>
+    <div id="irfankhan"></div>
+</body>
+</html> -->
